@@ -15,10 +15,16 @@ class ActivityEventConverterProviderTest {
     @Mock
     private ProductUserViewedConverter  productUserViewedConverter;
 
+    @Mock
+    private ProductUserAddedToCartConverter  productUserAddedToCartConverter;
+
+    @Mock
+    private CategoryUserViewedConverter  categoryUserViewedConverter;
+
     @Test
     public void provide_withProductViewedType_shouldReturnProductViewedConverter() throws ConverterException {
         //arrange
-        ActivityEventConverterProvider provider = new ActivityEventConverterProvider(productUserViewedConverter);
+        ActivityEventConverterProvider provider = new ActivityEventConverterProvider(productUserViewedConverter, categoryUserViewedConverter, productUserAddedToCartConverter);
 
         //act
         ActivityEventConverter provide = provider.provide(ActivityEvent.Type.PRODUCT_VIEWED);
@@ -30,7 +36,7 @@ class ActivityEventConverterProviderTest {
     @Test
     public void provide_withUnknownType_shouldThrowException() {
         //arrange
-        ActivityEventConverterProvider provider = new ActivityEventConverterProvider(productUserViewedConverter);
+        ActivityEventConverterProvider provider = new ActivityEventConverterProvider(productUserViewedConverter, categoryUserViewedConverter, productUserAddedToCartConverter);
 
         //act && assert
         Assertions.assertThrows(ConverterException.class, () -> {

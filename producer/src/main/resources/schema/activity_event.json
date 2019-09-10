@@ -22,7 +22,7 @@
       "$id": "#/properties/type",
       "type": "string",
       "title": "The Type Schema",
-      "enum": ["product_viewed", "category_viewed", "product_added_to_cart"],
+      "enum": ["product_viewed", "category_viewed", "product_added_to_cart", "unknown"],
       "required": true
     },
     "payload": {
