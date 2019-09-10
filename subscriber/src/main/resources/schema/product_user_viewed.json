@@ -1,0 +1,34 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "userId",
+    "productId",
+    "created"
+  ],
+  "properties": {
+    "userId": {
+      "$id": "#/properties/userId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "required": true
+    },
+    "productId": {
+      "$id": "#/properties/productId",
+      "type": "string",
+      "title": "The Productid Schema",
+      "required": true
+    },
+    "created": {
+      "$id": "#/properties/created",
+      "type": "string",
+      "title": "The Created Schema",
+      "default": "",
+      "format": "date-time",
+      "required": true
+    }
+  }
+}

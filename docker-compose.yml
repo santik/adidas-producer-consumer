@@ -15,7 +15,7 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "ProductUserViewed:1:1"
+      KAFKA_CREATE_TOPICS: "ProductUserViewed:1:1,CategoryUserViewed:1:1,ProductUserAddedToCart:1:1"
       KAFKA_LISTENERS: PLAINTEXT://:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
     volumes:
