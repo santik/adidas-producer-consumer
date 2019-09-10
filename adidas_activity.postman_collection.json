@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "adidas activity",
+		"_postman_id": "f4f6dc47-1775-9fd2-3075-53ee69a438ea",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product Viewed",
+			"request": {
+				"url": "http://localhost:8080/activity/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"userId\",\n  \"type\": \"product_viewed\",\n  \"payload\": {\n  \t\"productId\" : \"productId\"\n  },\n  \"created\": \"2019-08-09\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product Added To Cart",
+			"request": {
+				"url": "http://localhost:8080/activity/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"userId\",\n  \"type\": \"product_added_to_cart\",\n  \"payload\": {\n  \t\"productId\" : \"productId\"\n  },\n  \"created\": \"2019-08-09\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Category Viewed",
+			"request": {
+				"url": "http://localhost:8080/activity/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"userId\",\n  \"type\": \"category_viewed\",\n  \"payload\": {\n  \t\"categoryId\" : \"categoryId\"\n  },\n  \"created\": \"2019-08-09\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
