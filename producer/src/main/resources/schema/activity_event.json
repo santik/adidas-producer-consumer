@@ -1,0 +1,53 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "userId",
+    "type",
+    "payload",
+    "created"
+  ],
+  "properties": {
+    "userId": {
+      "$id": "#/properties/userId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "minLength": 1,
+      "required": true
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "The Type Schema",
+      "enum": ["product_viewed", "category_viewed", "product_added_to_cart"],
+      "required": true
+    },
+    "payload": {
+      "$id": "#/properties/payload",
+      "type": "object",
+      "title": "The Payload Schema",
+      "properties": {
+        "productId": {
+          "$id": "#/properties/payload/properties/productId",
+          "type": "string",
+          "title": "The Productid Schema"
+        },
+        "categoryId": {
+          "$id": "#/properties/payload/properties/categoryId",
+          "type": "string",
+          "title": "The Categoryid Schema"
+        }
+      }
+    },
+    "created": {
+      "$id": "#/properties/created",
+      "type": "string",
+      "format": "date-time",
+      "title": "The Created Schema",
+      "required": true
+    }
+  }
+}
