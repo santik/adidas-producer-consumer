@@ -59,8 +59,20 @@ Because of missing information how saved data is going to be used models were de
 
 For monitoring Redis cluster [RDBTools](https://rdbtools.com)  can be used. 
 
-### Dependencies used
+### Dependencies
+The full dependency list can be seen in [producer pom.xml](https://github.com/santik/adidas-producer-consumer/blob/master/producer/pom.xml)  and [subscriber pom.xml](https://github.com/santik/adidas-producer-consumer/blob/master/subscriber/pom.xml)
+Bellow listed the main set of dependencies
 
+ - Java11
+ - Maven
+ - SpringBoot
+ - SpringCloudStream
+ - JUnit
+ - Mockito
+ - JBehave
+ - Serenity
+ 
+ Kafka and Redis cluster created with [docker-compose](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml) 
 
 ### Pipeline proposal
 
