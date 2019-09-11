@@ -1,13 +1,14 @@
-package com.adidas.subscriber.productaddedtocart;
+package com.adidas.subscriber.kafka.productaddedtocart;
 
 import com.adidas.generated.ProductUserAddedToCart;
+import com.adidas.subscriber.kafka.KafkaChannels;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.Message;
 
-import static com.adidas.subscriber.productaddedtocart.ProductAddedToCartInput.PRODUCT_ADDED_TO_CART_INPUT_CHANNEL;
+import static com.adidas.subscriber.kafka.KafkaChannels.PRODUCT_ADDED_TO_CART_INPUT_CHANNEL;
 
-@EnableBinding(ProductAddedToCartInput.class)
+@EnableBinding(KafkaChannels.class)
 public class ProductAddedToCartConsumer {
 
     private ProductAddedToCartProcessor processor;

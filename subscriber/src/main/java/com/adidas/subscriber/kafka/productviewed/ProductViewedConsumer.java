@@ -1,13 +1,14 @@
-package com.adidas.subscriber.productviewed;
+package com.adidas.subscriber.kafka.productviewed;
 
 import com.adidas.generated.ProductUserViewed;
+import com.adidas.subscriber.kafka.KafkaChannels;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.Message;
 
-import static com.adidas.subscriber.productviewed.ProductViewedInput.PRODUCT_VIEWED_INPUT_CHANNEL;
+import static com.adidas.subscriber.kafka.KafkaChannels.PRODUCT_VIEWED_INPUT_CHANNEL;
 
-@EnableBinding(ProductViewedInput.class)
+@EnableBinding(KafkaChannels.class)
 public class ProductViewedConsumer {
 
     private ProductUserViewedProcessor processor;

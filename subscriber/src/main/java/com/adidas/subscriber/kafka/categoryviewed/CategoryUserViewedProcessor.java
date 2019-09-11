@@ -1,4 +1,4 @@
-package com.adidas.subscriber.categoryviewed;
+package com.adidas.subscriber.kafka.categoryviewed;
 
 import com.adidas.generated.CategoryUserViewed;
 import org.slf4j.Logger;
