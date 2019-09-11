@@ -1,5 +1,5 @@
 
-## Simple combination of producer and consumer to demonstrate data pipeline.  
+## Simple combination of producer and subscriber to demonstrate data pipeline.  
   
 ### Producer  
 Producer gets events in JSON format via REST API, transform them into Kafka messages and publishes in corresponding topics.  
@@ -78,3 +78,20 @@ Bellow listed the main set of dependencies
 
 ![](https://github.com/santik/adidas-producer-consumer/blob/master/pipeline.svg)
 
+### Running
+
+ 1. Checkout repository
+ 2. Run `docker-compose up -d`
+ 3. mvn clean install package
+
+The easiest way is to run it inside [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
+Steps :
+
+ 4. Run `producer/src/main/java/com/adidas/producer/Producer.java`
+ 5. Run `subscriber/src/main/java/com/adidas/subscriber/Subscriber.java`
+
+If there is no IDEA. 
+
+ 4. Run `java -jar publisher/target/publisher-DEVELOP-SNAPSHOT.jar` 
+ 5. Run `java -jar subscriber/target/subscriber-DEVELOP-SNAPSHOT.jar
+`
