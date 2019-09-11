@@ -76,3 +76,5 @@ Bellow listed the main set of dependencies
 
 ### Pipeline proposal
 
+![](https://github.com/santik/adidas-producer-consumer/blob/master/pipeline.svg)
+

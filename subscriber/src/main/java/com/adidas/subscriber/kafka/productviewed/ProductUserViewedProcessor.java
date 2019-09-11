@@ -12,7 +12,6 @@ public class ProductUserViewedProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductUserViewedProcessor.class);
 
-
     private ProductUserViewedRepository repository;
 
     public ProductUserViewedProcessor(ProductUserViewedRepository repository) {
@@ -22,6 +21,5 @@ public class ProductUserViewedProcessor {
     public void process(ProductUserViewed productUserViewed) {
         LOGGER.info("Saving {}", productUserViewed);
         repository.save(ProductUserViewedModel.createFromKafkaMessage(productUserViewed));
-        repository.findAllb(productUserViewed.setUserId());
     }
 }
