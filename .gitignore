@@ -1,0 +1,7 @@
+target/
+*.iml
+.idea/*
+producer/src/main/gensrc/
+subscriber/src/main/gensrc/
+producer/producer.iml
+subscriber/subscriber.iml

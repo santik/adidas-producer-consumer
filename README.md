@@ -81,8 +81,8 @@ Bellow listed the main set of dependencies
 ### Running
 
  1. Checkout repository
- 2. Run `docker-compose up -d`
- 3. mvn clean install package
+ 2. Run `docker-compose up -d` to create Kafka and Redis containers
+ 3. Run `mvn clean install package`
 
 The easiest way is to run it inside [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
 Steps :
