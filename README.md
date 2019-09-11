@@ -43,6 +43,24 @@ Application supports following events:
 ``` 
 Resulting Kafka events you can see in [Commercial Kafka Tool](http://www.kafkatool.com/) or [Opensource Kafka Tool](https://github.com/santik/kafkatool) made by me.
 
+### Subscriber   
+Subscriber listens for Kafka topics with activity events and saves information from them into NoSQL database. 
+
+Chosen database is Redis.
+There are 2 reasons for this choice: simplicity of setting up in Spring Boot application and existing example in another system.
+  
+Events from different topics are saved in a different database namespaces.  
+Because of missing information how saved data is going to be used models were designed in a very simple way:
+
+ - Key is concatenation of userId and timestamp when event occurred
+ -  Value is the whole object. 
+ 
+ *Assuming the chance of user performing different actions the same time is low keys should not collide.*  
+
+For monitoring Redis cluster [RDBTools](https://rdbtools.com)  can be used. 
+
+### Dependencies used
 
 
-Consumer consumes events from kafka and save them into database.
+### Pipeline proposal
+
