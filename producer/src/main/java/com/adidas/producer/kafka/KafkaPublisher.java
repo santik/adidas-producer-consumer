@@ -1,4 +1,4 @@
-package com.adidas.producer.publisher;
+package com.adidas.producer.kafka;
 
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;

@@ -1,4 +1,4 @@
-package com.adidas.producer.publisher;
+package com.adidas.producer.kafka;
 
 public class PublisherException extends Throwable {
 

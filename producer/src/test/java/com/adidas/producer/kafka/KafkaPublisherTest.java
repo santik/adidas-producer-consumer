@@ -1,6 +1,5 @@
-package com.adidas.producer.publisher;
+package com.adidas.producer.kafka;
 
-import com.adidas.generated.ProductUserViewed;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

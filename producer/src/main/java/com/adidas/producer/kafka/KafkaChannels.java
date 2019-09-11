@@ -1,4 +1,4 @@
-package com.adidas.producer.publisher;
+package com.adidas.producer.kafka;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;

@@ -1,9 +1,8 @@
-package com.adidas.producer.publisher;
+package com.adidas.producer.kafka;
 
 import com.adidas.generated.CategoryUserViewed;
 import com.adidas.generated.ProductUserAddedToCart;
 import com.adidas.generated.ProductUserViewed;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.stereotype.Service;
