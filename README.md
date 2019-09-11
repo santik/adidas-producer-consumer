@@ -72,7 +72,7 @@ Bellow listed the main set of dependencies
  - JBehave
  - Serenity
  
- Kafka and Redis cluster created with [docker-compose](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml) 
+ Kafka and Redis clusters for the local running created with [docker-compose](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml) 
 
 ### Pipeline proposal
 
