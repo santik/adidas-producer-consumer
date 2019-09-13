@@ -27,4 +27,12 @@ public class ProductUserAddedToCartModel implements Serializable {
     public static ProductUserAddedToCartModel createFromKafkaMessage(ProductUserAddedToCart productUserAddedToCart) {
         return new ProductUserAddedToCartModel(productUserAddedToCart.getUserId(), productUserAddedToCart.getProductId(), productUserAddedToCart.getCreated());
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
 }

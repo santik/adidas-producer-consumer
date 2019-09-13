@@ -12,14 +12,14 @@ public class ProductAddedToCartProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductAddedToCartProcessor.class);
 
-    private ProductUserAddedToCartRepository repository;
+    private ProductUserAddedToCartRepository productUserAddedToCartRepository;
 
-    public ProductAddedToCartProcessor(ProductUserAddedToCartRepository repository) {
-        this.repository = repository;
+    public ProductAddedToCartProcessor(ProductUserAddedToCartRepository productUserAddedToCartRepository) {
+        this.productUserAddedToCartRepository = productUserAddedToCartRepository;
     }
 
     public void process(ProductUserAddedToCart productUserAddedToCart) {
         LOGGER.info("Received {}", productUserAddedToCart);
-        repository.save(ProductUserAddedToCartModel.createFromKafkaMessage(productUserAddedToCart));
+        productUserAddedToCartRepository.save(ProductUserAddedToCartModel.createFromKafkaMessage(productUserAddedToCart));
     }
 }

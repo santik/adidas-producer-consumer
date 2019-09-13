@@ -12,14 +12,14 @@ public class ProductUserViewedProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductUserViewedProcessor.class);
 
-    private ProductUserViewedRepository repository;
+    private ProductUserViewedRepository productUserViewedRepository;
 
-    public ProductUserViewedProcessor(ProductUserViewedRepository repository) {
-        this.repository = repository;
+    public ProductUserViewedProcessor(ProductUserViewedRepository productUserViewedRepository) {
+        this.productUserViewedRepository = productUserViewedRepository;
     }
 
     public void process(ProductUserViewed productUserViewed) {
         LOGGER.info("Saving {}", productUserViewed);
-        repository.save(ProductUserViewedModel.createFromKafkaMessage(productUserViewed));
+        productUserViewedRepository.save(ProductUserViewedModel.createFromKafkaMessage(productUserViewed));
     }
 }

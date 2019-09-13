@@ -26,4 +26,12 @@ public class CategoryUserViewedModel implements Serializable {
     public static CategoryUserViewedModel createFromKafkaMessage(CategoryUserViewed categoryUserViewed) {
         return new CategoryUserViewedModel(categoryUserViewed.getUserId(), categoryUserViewed.getCategoryId(), categoryUserViewed.getCreated());
     }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public String getId() {
+        return id;
+    }
 }

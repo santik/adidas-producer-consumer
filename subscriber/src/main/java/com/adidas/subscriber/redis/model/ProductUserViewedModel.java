@@ -26,4 +26,12 @@ public class ProductUserViewedModel implements Serializable {
     public static ProductUserViewedModel createFromKafkaMessage(ProductUserViewed productUserViewed) {
         return new ProductUserViewedModel(productUserViewed.getUserId(), productUserViewed.getProductId(), productUserViewed.getCreated());
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
 }
