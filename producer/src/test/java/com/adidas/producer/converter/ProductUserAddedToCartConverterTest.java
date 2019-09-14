@@ -3,7 +3,6 @@ package com.adidas.producer.converter;
 import com.adidas.generated.ActivityEvent;
 import com.adidas.generated.Payload;
 import com.adidas.generated.ProductUserAddedToCart;
-import com.adidas.generated.ProductUserViewed;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;

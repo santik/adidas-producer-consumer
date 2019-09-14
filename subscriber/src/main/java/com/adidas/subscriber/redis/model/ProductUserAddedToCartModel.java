@@ -1,7 +1,6 @@
 package com.adidas.subscriber.redis.model;
 
 import com.adidas.generated.ProductUserAddedToCart;
-import com.adidas.generated.ProductUserViewed;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
