@@ -8,7 +8,7 @@ import com.adidas.generated.ProductUserViewed;
 import com.adidas.producer.functional.AsyncEventHelper;
 import com.adidas.producer.functional.TestingConfiguration;
 import com.adidas.producer.functional.TestingSession;
-import com.adidas.producer.functional.client.ActivityEventClient;
+import com.adidas.producer.functional.ActivityEventClient;
 import com.adidas.producer.functional.kafka.KafkaChannels;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;

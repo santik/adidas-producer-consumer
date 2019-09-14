@@ -1,8 +1,7 @@
-package com.adidas.producer.functional.client;
+package com.adidas.producer.functional;
 
 import com.adidas.generated.ActivityEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -12,22 +11,17 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.stream.Stream;
 
-/**
- * Pricing Service client.
- */
 @Service
 public class ActivityEventClient {
 
-    private HttpClient client;
-
-    @Autowired
-    public ActivityEventClient(HttpClient client) {
-        this.client = client;
-    }
+    private static final String API_ENDPOINT = "http://localhost:8080/activity/";
 
     public int sendActivityEvent(ActivityEvent activityEvent) throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .build();
         ObjectMapper mapper = new ObjectMapper();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/activity/"))
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(API_ENDPOINT))
                 .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(activityEvent)))
                 .header("Content-Type", "application/json")
                 .build();
