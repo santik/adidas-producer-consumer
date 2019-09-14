@@ -2,18 +2,18 @@
 ## Simple combination of producer and subscriber to demonstrate data pipeline.  
 
 Repository contains
- - [Code for Producer service](https://github.com/santik/adidas-producer-consumer#producer)
+- [Code for Producer service](https://github.com/santik/adidas-producer-consumer#producer)
 - [Code for Subscriber service](https://github.com/santik/adidas-producer-consumer#subscriber)
 - [Docker compose  file for running services locally](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml)
 - [Pipeline proposal](https://github.com/santik/adidas-producer-consumer#pipeline-proposal)
   
 ### Producer  
-Producer gets events in JSON format via REST API, transform them into Kafka messages and publishes in corresponding topics.  
+Producer gets events in JSON format via REST API, transforms them into Kafka messages and publishes in corresponding topics.  
 REST endpoint is `/activity/`.   
 JSON must be sent as a body for the POST request.  
 *[Postman collection for API calls](https://github.com/santik/adidas-producer-consumer/blob/master/adidas_activity.postman_collection.json)*
   
-Application supports following events:  
+Producer application supports following events:  
 **Product Viewed**  
 ```
 {
@@ -47,21 +47,22 @@ Application supports following events:
 	"created": "2019-08-09"
 }  
 ``` 
-Resulting Kafka events you can see in [Commercial Kafka Tool](http://www.kafkatool.com/) or [Opensource Kafka Tool](https://github.com/santik/kafkatool) made by me.
+Resulting Kafka events can be seen in [Commercial Kafka Tool](http://www.kafkatool.com/) or [Opensource Kafka Tool](https://github.com/santik/kafkatool) from my account.
 
 ### Subscriber   
 Subscriber listens for Kafka topics with activity events and saves information from them into NoSQL database. 
 
 Chosen database is Redis.
-There are 2 reasons for this choice: simplicity of setting up in Spring Boot application and existing example in another system.
+There are 2 reasons for this choice: simplicity of setting up in Spring Boot application and previous experience with that.
   
 Events from different topics are saved in a different database namespaces.  
 Because of missing information how saved data is going to be used models were designed in a very simple way:
 
  - Key is concatenation of userId and timestamp when event occurred
  - Value is the whole object. 
- 
  *Assuming the chance of user performing different actions the same time is low keys should not collide.*  
+ 
+Database adapter can be easily replaced as well as repository implementation. 
 
 For monitoring Redis cluster [RDBTools](https://rdbtools.com)  can be used. 
 
@@ -78,7 +79,7 @@ Bellow listed the main set of dependencies
  - JBehave
  - Serenity
  
- Kafka and Redis clusters for the local running created with [docker-compose](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml) 
+ Kafka and Redis clusters for the local running of application created with [docker-compose](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml) 
 
 ### Pipeline proposal
 
@@ -99,5 +100,11 @@ Steps :
 If there is no IDEA. 
 
  4. Run `java -jar publisher/target/publisher-DEVELOP-SNAPSHOT.jar` 
- 5. Run `java -jar subscriber/target/subscriber-DEVELOP-SNAPSHOT.jar
-`
+ 5. Run `java -jar subscriber/target/subscriber-DEVELOP-SNAPSHOT.jar`
+ 
+ ### Known issues and possible improvements
+  - Separate endpoints and separate event schemas can be used in publisher application.
+  - Invalid messages can be sent to the separate topic. Not done because it requires much more code for validation. For simplicity validation in current implementation is very strict. On invalid message error is logged.
+  - Extract Kafka contracts into library and use them in both applications.
+  - Cover unhappy flows in functional tests.
+  - Make it possible to run functional tests as blackbox test in Subscriber. In Publisher it is possible.
