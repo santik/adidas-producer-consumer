@@ -34,8 +34,6 @@
         <jbehave.version>4.5.1</jbehave.version>
         <serenity.jbehave.version>1.46.0</serenity.jbehave.version>
         <serenity.version>2.0.52</serenity.version>
-        <spring.integration.aws.version>2.2.0.RELEASE</spring.integration.aws.version>
-        <apache.poi.ooxml>4.0.1</apache.poi.ooxml>
         <jsonschema2pojo-maven-plugin.version>0.4.37</jsonschema2pojo-maven-plugin.version>
     </properties>
 
@@ -71,6 +69,13 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
         </dependency>
 
         <!-- test scoped dependencies follows -->
@@ -136,29 +141,6 @@
             <artifactId>serenity-spring</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>
-        </dependency>
-
-
-        <!-- spring integration aws dependencies synchronization with S3 files-->
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-aws</artifactId>
-            <version>${spring.integration.aws.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-file</artifactId>
-        </dependency>
-        <!-- Apache POI dependencies -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${apache.poi.ooxml}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>${commons-lang.version}</version>
         </dependency>
 
     </dependencies>
