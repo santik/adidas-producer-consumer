@@ -1,7 +1,7 @@
-package com.adidas.subscriber.kafka.productaddedtocart;
+package com.adidas.subscriber.kafka;
 
 import com.adidas.generated.ProductUserAddedToCart;
-import com.adidas.subscriber.kafka.KafkaChannels;
+import com.adidas.subscriber.processor.ProductAddedToCartProcessor;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.Message;

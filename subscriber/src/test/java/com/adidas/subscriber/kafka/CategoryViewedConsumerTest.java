@@ -1,6 +1,7 @@
-package com.adidas.subscriber.kafka.categoryviewed;
+package com.adidas.subscriber.kafka;
 
 import com.adidas.generated.CategoryUserViewed;
+import com.adidas.subscriber.processor.CategoryUserViewedProcessor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

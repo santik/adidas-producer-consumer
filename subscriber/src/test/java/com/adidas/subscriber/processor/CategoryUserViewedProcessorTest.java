@@ -1,4 +1,4 @@
-package com.adidas.subscriber.kafka.categoryviewed;
+package com.adidas.subscriber.processor;
 
 import com.adidas.generated.CategoryUserViewed;
 import com.adidas.subscriber.redis.model.CategoryUserViewedModel;

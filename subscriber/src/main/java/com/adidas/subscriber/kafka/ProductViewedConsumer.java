@@ -1,7 +1,7 @@
-package com.adidas.subscriber.kafka.productviewed;
+package com.adidas.subscriber.kafka;
 
 import com.adidas.generated.ProductUserViewed;
-import com.adidas.subscriber.kafka.KafkaChannels;
+import com.adidas.subscriber.processor.ProductUserViewedProcessor;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.Message;

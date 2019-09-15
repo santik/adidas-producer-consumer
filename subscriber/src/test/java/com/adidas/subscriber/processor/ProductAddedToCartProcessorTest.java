@@ -1,4 +1,4 @@
-package com.adidas.subscriber.kafka.productaddedtocart;
+package com.adidas.subscriber.processor;
 
 import com.adidas.generated.ProductUserAddedToCart;
 import com.adidas.subscriber.redis.model.ProductUserAddedToCartModel;
