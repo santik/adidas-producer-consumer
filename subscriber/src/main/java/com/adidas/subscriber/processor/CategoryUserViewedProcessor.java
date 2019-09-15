@@ -5,6 +5,7 @@ import com.adidas.subscriber.redis.model.CategoryUserViewedModel;
 import com.adidas.subscriber.redis.repository.CategoryUserViewedRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,7 @@ public class CategoryUserViewedProcessor {
         this.categoryUserViewedRepository = categoryUserViewedRepository;
     }
 
+    @Retryable
     public void process(CategoryUserViewed categoryUserViewed) {
         LOGGER.info("Received {}", categoryUserViewed);
         categoryUserViewedRepository.save(CategoryUserViewedModel.createFromKafkaMessage(categoryUserViewed));

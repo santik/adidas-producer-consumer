@@ -49,6 +49,8 @@ Producer application supports following events:
 ``` 
 Resulting Kafka events can be seen in [Commercial Kafka Tool](http://www.kafkatool.com/) or [Opensource Kafka Tool](https://github.com/santik/kafkatool) from my account.
 
+For publishing Kafka messages retry mechanism was set up. 
+
 ### Subscriber   
 Subscriber listens for Kafka topics with activity events and saves information from them into NoSQL database. 
 
@@ -65,6 +67,8 @@ Because of missing information how saved data is going to be used models were de
 Database adapter can be easily replaced as well as repository implementation. 
 
 For monitoring Redis cluster [RDBTools](https://rdbtools.com)  can be used. 
+
+For saving data to the database retry mechanism was set up. 
 
 ### Dependencies
 The full dependency list can be seen in [producer pom.xml](https://github.com/santik/adidas-producer-consumer/blob/master/producer/pom.xml)  and [subscriber pom.xml](https://github.com/santik/adidas-producer-consumer/blob/master/subscriber/pom.xml)
