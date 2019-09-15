@@ -107,4 +107,4 @@ If there is no IDEA.
   - Invalid messages can be sent to the separate topic. Not done because it requires much more code for validation. For simplicity validation in current implementation is very strict. On invalid message error is logged.
   - Extract Kafka contracts into library and use them in both applications.
   - Cover unhappy flows in functional tests.
-  - Make it possible to run functional tests as blackbox test in Subscriber. In Publisher it is possible.
+  - Make it possible to run functional tests as blackbox test in Subscriber. *In Producer it is possible.*
