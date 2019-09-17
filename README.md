@@ -2,12 +2,12 @@
 ## Simple combination of producer and subscriber to demonstrate data pipeline.  
 
 Repository contains
-- [Chellenge description]()
+- [Challenge description](https://github.com/santik/adidas-producer-consumer/blob/master/CodingChallenge_BackEnd.pdf)
 - [Code for Producer service](https://github.com/santik/adidas-producer-consumer#producer)
 - [Code for Subscriber service](https://github.com/santik/adidas-producer-consumer#subscriber)
 - [Docker compose  file for running services locally](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml)
 - [Pipeline proposal](https://github.com/santik/adidas-producer-consumer#pipeline-proposal)
-- [Proposal of the whole system (part 1 of chellenge)]()
+- [Proposal for the system architecture (part 1 of challenge)](https://github.com/santik/adidas-producer-consumer/blob/master/Proposal_for_the_system_architecture.pdf)
   
 ### Producer  
 Producer gets events in JSON format via REST API, transforms them into Kafka messages and publishes in corresponding topics.  
