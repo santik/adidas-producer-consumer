@@ -2,10 +2,12 @@
 ## Simple combination of producer and subscriber to demonstrate data pipeline.  
 
 Repository contains
+- [Chellenge description]()
 - [Code for Producer service](https://github.com/santik/adidas-producer-consumer#producer)
 - [Code for Subscriber service](https://github.com/santik/adidas-producer-consumer#subscriber)
 - [Docker compose  file for running services locally](https://github.com/santik/adidas-producer-consumer/blob/master/docker-compose.yml)
 - [Pipeline proposal](https://github.com/santik/adidas-producer-consumer#pipeline-proposal)
+- [Proposal of the whole system (part 1 of chellenge)]()
   
 ### Producer  
 Producer gets events in JSON format via REST API, transforms them into Kafka messages and publishes in corresponding topics.  
@@ -91,6 +93,8 @@ Bellow listed the main set of dependencies
 
 ### Running
 
+For running both applications in the time port for subscriber was changed from the default **8080** to **8081**
+
  1. Checkout repository
  2. Run `docker-compose up -d` to create Kafka and Redis containers
  3. Run `mvn clean install package`
@@ -106,9 +110,17 @@ If there is no IDEA.
  4. Run `java -jar publisher/target/publisher-DEVELOP-SNAPSHOT.jar` 
  5. Run `java -jar subscriber/target/subscriber-DEVELOP-SNAPSHOT.jar`
  
+ ### Testing
+ 
+ Majority of classes are covered with unittests.
+ 
+ Functional flows are covered with functional tests. BDD approach was used to have tests as documentation. 
+ - [Story for producer](https://github.com/santik/adidas-producer-consumer/blob/master/producer/src/test/resources/com/adidas/prs/functional/stories/publishes_messages_with_data_from_api.story)
+ - [Story for subscriber](https://github.com/santik/adidas-producer-consumer/blob/master/subscriber/src/test/resources/com/adidas/prs/functional/stories/listens_to_topics_and_saves_data_from_messages.story) 
+ 
  ### Known issues and possible improvements
   - Separate endpoints and separate event schemas can be used in publisher application.
   - Invalid messages can be sent to the separate topic. Not done because it requires much more code for validation. For simplicity validation in current implementation is very strict. On invalid message error is logged.
   - Extract Kafka contracts into library and use them in both applications.
-  - Cover unhappy flows in functional tests.
+  - Cover negative flows in functional tests.
   - Make it possible to run functional tests as blackbox test in Subscriber. *In Producer it is possible.*
