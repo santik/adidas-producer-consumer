@@ -9,7 +9,7 @@ import org.springframework.messaging.Message;
 import static com.adidas.subscriber.kafka.KafkaChannels.CATEGORY_VIEWED_INPUT_CHANNEL;
 
 @EnableBinding(KafkaChannels.class)
-public class CategoryViewedConsumer {
+public class CategoryViewedConsumer implements Consumer<CategoryUserViewed> {
 
     private CategoryUserViewedProcessor processor;
 
@@ -17,6 +17,7 @@ public class CategoryViewedConsumer {
         this.processor = processor;
     }
 
+    @Override
     @StreamListener(CATEGORY_VIEWED_INPUT_CHANNEL)
     public void consume(Message<CategoryUserViewed> message) {
         processor.process(message.getPayload());

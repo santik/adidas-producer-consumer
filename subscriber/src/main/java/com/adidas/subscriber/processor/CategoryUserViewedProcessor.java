@@ -9,7 +9,7 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CategoryUserViewedProcessor {
+public class CategoryUserViewedProcessor implements Processor<CategoryUserViewed> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CategoryUserViewedProcessor.class);
 
@@ -19,6 +19,7 @@ public class CategoryUserViewedProcessor {
         this.categoryUserViewedRepository = categoryUserViewedRepository;
     }
 
+    @Override
     @Retryable
     public void process(CategoryUserViewed categoryUserViewed) {
         LOGGER.info("Received {}", categoryUserViewed);

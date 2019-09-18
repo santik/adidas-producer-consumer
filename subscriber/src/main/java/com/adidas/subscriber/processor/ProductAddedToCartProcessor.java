@@ -9,7 +9,7 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductAddedToCartProcessor {
+public class ProductAddedToCartProcessor implements Processor<ProductUserAddedToCart> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductAddedToCartProcessor.class);
 
@@ -19,6 +19,7 @@ public class ProductAddedToCartProcessor {
         this.productUserAddedToCartRepository = productUserAddedToCartRepository;
     }
 
+    @Override
     @Retryable
     public void process(ProductUserAddedToCart productUserAddedToCart) {
         LOGGER.info("Received {}", productUserAddedToCart);

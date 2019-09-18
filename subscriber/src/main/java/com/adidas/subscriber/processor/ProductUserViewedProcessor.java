@@ -9,7 +9,7 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductUserViewedProcessor {
+public class ProductUserViewedProcessor implements Processor<ProductUserViewed> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductUserViewedProcessor.class);
 
@@ -19,6 +19,7 @@ public class ProductUserViewedProcessor {
         this.productUserViewedRepository = productUserViewedRepository;
     }
 
+    @Override
     @Retryable
     public void process(ProductUserViewed productUserViewed) {
         LOGGER.info("Saving {}", productUserViewed);
