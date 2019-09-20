@@ -115,8 +115,8 @@ If there is no IDEA.
  Majority of classes are covered with unittests.
  
  Functional flows are covered with functional tests. Serenity BDD approach was used to have [tests as documentation](https://en.wikipedia.org/wiki/Specification_by_example). 
- - [Story for producer](https://github.com/santik/adidas-producer-consumer/blob/master/producer/src/test/resources/com/adidas/prs/functional/stories/publishes_messages_with_data_from_api.story)
- - [Story for subscriber](https://github.com/santik/adidas-producer-consumer/blob/master/subscriber/src/test/resources/com/adidas/prs/functional/stories/listens_to_topics_and_saves_data_from_messages.story) 
+ - [Story for producer](https://github.com/santik/adidas-producer-consumer/blob/master/producer/src/test/resources/com/adidas/functional/stories/publishes_messages_with_data_from_api.story)
+ - [Story for subscriber](https://github.com/santik/adidas-producer-consumer/blob/master/subscriber/src/test/resources/com/adidas/functional/stories/listens_to_topics_and_saves_data_from_messages.story) 
  
  ### Known issues and possible improvements
   - Separate endpoints and separate event schemas can be used in publisher application.
