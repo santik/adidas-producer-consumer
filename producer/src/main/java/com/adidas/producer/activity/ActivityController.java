@@ -1,8 +1,11 @@
 package com.adidas.producer.activity;
 
 import com.adidas.generated.ActivityEvent;
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +29,14 @@ public class ActivityController {
     }
 
     @PostMapping(path = "/", consumes = "application/json")
-    public void activity(@RequestBody @Valid ActivityEvent activity) {
+    public ResponseEntity activity(@RequestBody @Valid ActivityEvent activity) {
         activityService.publishActivityEvent(activity);
+        return ResponseEntity.ok("ok");
     }
 
-    @ExceptionHandler(Exception.class)
-    public void handleAllExceptions(Exception ex, WebRequest request) {
+    @ExceptionHandler(InvalidDefinitionException.class)
+    public ResponseEntity handleAllExceptions(InvalidDefinitionException ex, WebRequest request) {
         LOGGER.error(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 }
